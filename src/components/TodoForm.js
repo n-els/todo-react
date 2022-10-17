@@ -13,23 +13,36 @@ const TodoForm = ({ handleTodoAdd }) => {
   };
 
   return (
-    <div className="mt-5 text-center">
-      <form action="" onSubmit={submitHandler}>
+    <div className="d-block">
+      <form action="" className="flex justify-between" onSubmit={submitHandler}>
         <input
-          className="p-4 w-3/4"
+          className="p-4 w-full rounded-tl-md rounded-bl-md"
           type="text"
           name="inputTodo"
           id="inputTodo"
           value={inputValue}
-          placeholder="my new todo"
+          placeholder="Was möchtest Du tun?"
           onChange={inputTodoFieldChangeHandler}
           required
         />
         <button
-          className="ml-4 p-4 bg-green-600 hover:bg-green-800"
+          className="px-3 py-2 bg-amber-500 rounded-tr-md rounded-br-md text-white text-1xl"
           type="submit"
         >
-          +
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 4.5v15m7.5-7.5h-15"
+            />
+          </svg>
         </button>
       </form>
     </div>

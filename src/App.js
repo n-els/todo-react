@@ -30,11 +30,10 @@ const App = () => {
   };
 
   return (
-    <div className="container max-w-lg p-10 mx-auto bg-green-400">
-      <h1 className="text-3xl font-bold text-center">
-        My Todo List with React.js
+    <div className="max-w-lg p-10 mt-8 bg-gray-600 mx-auto rounded-md">
+      <h1 className="text-1xl font-bold text-center text-white mb-10">
+        Our Todo List with React.js
       </h1>
-
       <main>
         <TodoForm handleTodoAdd={addTodoHandler} />
         <TodoList list={todoItems} handleTodoRemove={removeTodoHandler} />

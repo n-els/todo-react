@@ -3,7 +3,7 @@ import Todo from './Todo';
 
 const TodoList = ({ list, handleTodoRemove }) => {
   return (
-    <ul className="mt-4 text-center">
+    <ul className="mt-4">
       {list.map(todo => {
         return (
           <Todo
