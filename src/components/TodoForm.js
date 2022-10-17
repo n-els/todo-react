@@ -26,7 +26,7 @@ const TodoForm = ({ handleTodoAdd }) => {
           required
         />
         <button
-          className="px-3 py-2 bg-amber-500 rounded-tr-md rounded-br-md text-white text-1xl"
+          className="px-3 py-2 bg-emerald-600 rounded-tr-md rounded-br-md text-white text-1xl"
           type="submit"
         >
           <svg

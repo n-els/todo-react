@@ -6,14 +6,14 @@ const Todo = ({ text, id, handleTodoRemove }) => {
   };
 
   return (
-    <li className="bg-blue-600 mb-3 px-5 py-3 text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg">
+    <li className="bg-gray-100 mb-3 px-5 py-3 text-dark rounded-lg">
       <span className="flex justify-between">
         {text}{' '}
         <button
           onClick={() => {
             deleteHandler(id);
           }}
-          className="rounded-md text-white"
+          className="rounded-md text-red-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,8 +1,9 @@
 import './App.css';
+import Header from './components/Header';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import Footer from './components/Footer';
 import { useState } from 'react';
-
 // Dummy Data
 const todos = [
   { id: 1, text: 'müll rausbringen', done: false },
@@ -30,15 +31,19 @@ const App = () => {
   };
 
   return (
-    <div className="max-w-lg p-10 mt-8 bg-gray-600 mx-auto rounded-md">
+    <>
+    <Header />
+    <div className="max-w-lg p-10 my-10 bg-sky-800 mx-auto rounded-md">
       <h1 className="text-1xl font-bold text-center text-white mb-10">
-        Our Todo List with React.js
+        Todo's
       </h1>
       <main>
         <TodoForm handleTodoAdd={addTodoHandler} />
         <TodoList list={todoItems} handleTodoRemove={removeTodoHandler} />
       </main>
     </div>
+    <Footer />
+    </>
   );
 };
 
