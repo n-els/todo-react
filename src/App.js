@@ -6,9 +6,9 @@ import Footer from './components/Footer';
 import { useState } from 'react';
 // Dummy Data
 const todos = [
-  { id: 1, text: 'müll rausbringen', done: false },
-  { id: 2, text: 'sport machen', done: false },
-  { id: 3, text: 'fenster putzen', done: false },
+  // { id: 1, text: 'müll rausbringen', done: false },
+  // { id: 2, text: 'sport machen', done: false },
+  // { id: 3, text: 'fenster putzen', done: false },
 ];
 
 const App = () => {
@@ -33,15 +33,13 @@ const App = () => {
   return (
     <>
     <Header />
-    <div className="max-w-lg p-10 my-10 bg-sky-800 mx-auto rounded-md">
-      <h1 className="text-1xl font-bold text-center text-white mb-10">
-        Todo's
-      </h1>
-      <main>
-        <TodoForm handleTodoAdd={addTodoHandler} />
-        <TodoList list={todoItems} handleTodoRemove={removeTodoHandler} />
+      <main className="max-w-xl rounded-md mt-24 p-12 backdrop-blur shadow-slate-100 mx-auto">
+        <h1 className="text-center text-indigo-700 mb-6 text-3xl font-light">Was möchtest Du tun?</h1>
+        <div className="backdrop-blur p-3">
+          <TodoForm handleTodoAdd={addTodoHandler} />
+          <TodoList list={todoItems} handleTodoRemove={removeTodoHandler} />
+        </div>
       </main>
-    </div>
     <Footer />
     </>
   );

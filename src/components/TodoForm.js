@@ -13,20 +13,20 @@ const TodoForm = ({ handleTodoAdd }) => {
   };
 
   return (
-    <div className="d-block">
-      <form action="" className="flex justify-between" onSubmit={submitHandler}>
+    <div className="d-block backdrop-blur-md">
+      <form action="" className="flex justify-between mb-6" onSubmit={submitHandler}>
         <input
-          className="p-4 w-full rounded-tl-md rounded-bl-md"
+          className="px-3 py-4 w-full rounded-tl-md text-2xl font-light rounded-bl-md"
           type="text"
           name="inputTodo"
           id="inputTodo"
           value={inputValue}
-          placeholder="Was möchtest Du tun?"
+          placeholder="Ich möchte..."
           onChange={inputTodoFieldChangeHandler}
           required
         />
         <button
-          className="px-3 py-2 bg-emerald-600 rounded-tr-md rounded-br-md text-white text-1xl"
+          className="px-4 py-2 bg-cyan-600 rounded-tr-md rounded-br-md text-white text-1xl"
           type="submit"
         >
           <svg

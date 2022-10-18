@@ -3,9 +3,14 @@
 @tailwind utilities;
 
 body {
-    background-color: #111;
+    background: url('./static/images/Pastell-colors.jpg') top center;
+    background-size: cover;
 }
 
 #root {
     height: 100vh;
 }
+
+/* Clicka hir */
+/* https://tailwind.ink/ */
+/* LOL ? */
