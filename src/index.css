@@ -5,7 +5,8 @@
 
 /* @Nader probier mal rum mit den Bildern  :-) Neon-Face oder Color-Pallette */
 body {
-    background: url('./static/images/Neon-Face.jpg') top center;
+    /* background: url('./static/images/Neon-Face.jpg') top center; */
+    background: url('./static/images/Pastell-colors.jpg') top center;
     background-size: cover;
 }
 

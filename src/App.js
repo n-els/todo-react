@@ -14,6 +14,11 @@ const todos = [
 const App = () => {
   // instantiate state for the todo items (Array)
   const [todoItems, setTodoItems] = useState(todos);
+  console.log(todoItems);
+  // handler for edit
+  const editTodoHandler = (id, done) => {
+    console.log("test");
+  }
 
   // The handler will be passing down to the TodoForm component
   const addTodoHandler = input => {
@@ -37,7 +42,7 @@ const App = () => {
         <h1 className="text-center text-indigo-700 mb-6 text-3xl font-light">Was möchtest Du tun?</h1>
         <div className="backdrop-blur p-3">
           <TodoForm handleTodoAdd={addTodoHandler} />
-          <TodoList list={todoItems} handleTodoRemove={removeTodoHandler} />
+          <TodoList list={todoItems} handleTodoRemove={removeTodoHandler} handleEdit={editTodoHandler}/>
         </div>
       </main>
     <Footer />

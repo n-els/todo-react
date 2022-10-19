@@ -1,12 +1,17 @@
 import React from 'react';
 
-const Todo = ({ text, id, handleTodoRemove }) => {
+const Todo = ({ text, id, handleTodoRemove, done, handleEdit }) => {
   const deleteHandler = id => {
     handleTodoRemove(id);
   };
+  const editHandler = (id,done) => {
+    handleEdit(id, done);
+  }
 
   return (
-    <li className="bg-white mb-3 p-4 text-slate-900 text-2xl font-light rounded-md">
+    <li className="bg-white mb-3 p-4 text-slate-900 text-2xl font-light rounded-md" onDoubleClick={() => {
+      editHandler(id, done)
+    }}>
       <span className="flex justify-between">
         {text}{' '}
         <button
