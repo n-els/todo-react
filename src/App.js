@@ -17,8 +17,17 @@ const App = () => {
   console.log(todoItems);
   // handler for edit
   const editTodoHandler = (id, done) => {
-    console.log("test");
-  }
+    const currentIndex = todoItems.findIndex(item => {
+      console.log('gefunden');
+      return item.id === id;
+    });
+
+    const currentItemStatus = (todoItems[currentIndex].done =
+      !todoItems[currentIndex].done);
+
+    setTodoItems([...todoItems, currentItemStatus]);
+    console.log(todoItems[currentIndex]);
+  };
 
   // The handler will be passing down to the TodoForm component
   const addTodoHandler = input => {
@@ -37,15 +46,21 @@ const App = () => {
 
   return (
     <>
-    <Header />
+      <Header />
       <main className="max-w-xl rounded-md mt-24 p-12 backdrop-blur shadow-slate-100 mx-auto">
-        <h1 className="text-center text-indigo-700 mb-6 text-3xl font-light">Was möchtest Du tun?</h1>
+        <h1 className="text-center text-indigo-700 mb-6 text-3xl font-light">
+          Was möchtest Du tun?
+        </h1>
         <div className="backdrop-blur p-3">
           <TodoForm handleTodoAdd={addTodoHandler} />
-          <TodoList list={todoItems} handleTodoRemove={removeTodoHandler} handleEdit={editTodoHandler}/>
+          <TodoList
+            list={todoItems}
+            handleTodoRemove={removeTodoHandler}
+            handleEdit={editTodoHandler}
+          />
         </div>
       </main>
-    <Footer />
+      <Footer />
     </>
   );
 };

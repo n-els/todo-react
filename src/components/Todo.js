@@ -4,14 +4,26 @@ const Todo = ({ text, id, handleTodoRemove, done, handleEdit }) => {
   const deleteHandler = id => {
     handleTodoRemove(id);
   };
-  const editHandler = (id,done) => {
+  const editHandler = (id, done) => {
     handleEdit(id, done);
-  }
+  };
+
+  const todoClasses = done => {
+    if (done) {
+      return 'bg-white mb-3 p-4 text-slate-900 text-2xl font-light rounded-md line-through';
+    } else {
+      return 'bg-white mb-3 p-4 text-slate-900 text-2xl font-light rounded-md';
+    }
+  };
+  console.log(todoClasses);
 
   return (
-    <li className="bg-white mb-3 p-4 text-slate-900 text-2xl font-light rounded-md" onDoubleClick={() => {
-      editHandler(id, done)
-    }}>
+    <li
+      className={todoClasses(done)}
+      onDoubleClick={() => {
+        editHandler(id, done);
+      }}
+    >
       <span className="flex justify-between">
         {text}{' '}
         <button
