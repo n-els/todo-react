@@ -14,19 +14,26 @@ const todos = [
 const App = () => {
   // instantiate state for the todo items (Array)
   const [todoItems, setTodoItems] = useState(todos);
-  console.log(todoItems);
-  // handler for edit
+
+  // handler for edit todo status
   const editTodoHandler = (id, done) => {
     const currentIndex = todoItems.findIndex(item => {
-      console.log('gefunden');
       return item.id === id;
     });
-
     const currentItemStatus = (todoItems[currentIndex].done =
       !todoItems[currentIndex].done);
 
-    setTodoItems([...todoItems, currentItemStatus]);
-    console.log(todoItems[currentIndex]);
+    // Neues "Item"-Objekt erstellen und den Wert currentItemStatus der Eigenschaft "done" zuweisen.
+    const currentItem = { ...todoItems[currentIndex], done: currentItemStatus };
+
+    // Aktuelles todoItems - Array aus dem State in updatedTodos speichern
+    const updatedTodos = todoItems;
+
+    // Das Objekt am "currentIndex" vom updatedTodos-Array mit dem neuen "currentItem" austauschen
+    updatedTodos[currentIndex] = currentItem;
+
+    // aktualisiertes Array als neuen State setzen
+    setTodoItems([...updatedTodos]);
   };
 
   // The handler will be passing down to the TodoForm component
