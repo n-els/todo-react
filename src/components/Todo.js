@@ -15,7 +15,6 @@ const Todo = ({ text, id, handleTodoRemove, done, handleEdit }) => {
       return 'bg-white mb-3 p-4 text-slate-900 text-2xl font-light rounded-md';
     }
   };
-  console.log(todoClasses);
 
   return (
     <li
