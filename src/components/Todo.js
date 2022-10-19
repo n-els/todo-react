@@ -10,7 +10,7 @@ const Todo = ({ text, id, handleTodoRemove, done, handleEdit }) => {
 
   const todoClasses = done => {
     if (done) {
-      return 'bg-white mb-3 p-4 text-slate-900 text-2xl font-light rounded-md line-through';
+      return 'bg-white mb-3 p-4 text-slate-900 text-2xl font-light rounded-md line-through opacity-50';
     } else {
       return 'bg-white mb-3 p-4 text-slate-900 text-2xl font-light rounded-md';
     }
