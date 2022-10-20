@@ -3,17 +3,35 @@ import Header from './components/Header';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import Footer from './components/Footer';
-import { useState } from 'react';
-// Dummy Data
-const todos = [
-  // { id: 1, text: 'müll rausbringen', done: false },
-  // { id: 2, text: 'sport machen', done: false },
-  // { id: 3, text: 'fenster putzen', done: false },
-];
+import { useState, useEffect } from 'react';
+
+/* check localstorage: if "todos" exists, 
+convert the json string to a javascript object
+if not, return an empty array */
+
+const checkLocalStorage = () => {
+  if (localStorage.getItem('todos')) {
+    return JSON.parse(localStorage.getItem('todos'));
+  } else {
+    return [];
+  }
+};
+
+// store the returned value in the constant todos
+
+const todos = checkLocalStorage();
 
 const App = () => {
-  // instantiate state for the todo items (Array)
+  /* instantiate the status for the todoItems array,
+  we pass the value of the todos constant here as the initial value */
   const [todoItems, setTodoItems] = useState(todos);
+
+  /* whenever the state of the todoItems array changes, 
+  the current state is passed to localstorage */
+  useEffect(() => {
+    const todoItemsAsJSON = JSON.stringify(todoItems);
+    localStorage.setItem('todos', todoItemsAsJSON);
+  }, [todoItems]);
 
   // handler for edit todo status
   const editTodoHandler = (id, done) => {
@@ -23,16 +41,16 @@ const App = () => {
     const currentItemStatus = (todoItems[currentIndex].done =
       !todoItems[currentIndex].done);
 
-    // Neues "Item"-Objekt erstellen und den Wert currentItemStatus der Eigenschaft "done" zuweisen.
+    //  Create a new "Item" object and assign the currentItemStatus value to the "done" property.
     const currentItem = { ...todoItems[currentIndex], done: currentItemStatus };
 
-    // Aktuelles todoItems - Array aus dem State in updatedTodos speichern
+    // Save current todoItems-Array in a new constant (updatedTodos)
     const updatedTodos = todoItems;
 
-    // Das Objekt am "currentIndex" vom updatedTodos-Array mit dem neuen "currentItem" austauschen
+    // Replace the object at the "currentIndex" from the updatedTodos array with the new "currentItem".
     updatedTodos[currentIndex] = currentItem;
 
-    // aktualisiertes Array als neuen State setzen
+    // set updated array as new state
     setTodoItems([...updatedTodos]);
   };
 
@@ -45,7 +63,7 @@ const App = () => {
     setTodoItems(newTodoItems);
   };
 
-  // The handler will be passing down to the Todo component
+  // This handler will be passing down to the Todo component and need to be called there
   const removeTodoHandler = id => {
     const filteredTodos = todoItems.filter(item => item.id !== id);
     setTodoItems(filteredTodos);
